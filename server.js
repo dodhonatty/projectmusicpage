@@ -1,14 +1,11 @@
 import Express from 'express'
-import path from 'path'
+import routes from './routes'
 
 const port = 8080
 
 const App = Express()
 
-App.get('/', (req, res) => {
-	/*optional stuff to do after getScript */ 
-	res.sendFile(path.resolve(__dirname,'static','index.html'))
-});
+routes(App)
 
 App.listen(port, err => {
  console.log('server is runnig on port'+ port)
